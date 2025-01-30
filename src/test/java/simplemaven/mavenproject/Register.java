@@ -20,7 +20,7 @@ public class Register {
 	static String url="https://demo.automationtesting.in/Windows.html";
     static WebDriver driver;
     
-    @Test
+    @Test(groups = {"Regression"})
 	public static void Register() throws Exception {
 		// TODO Auto-generated method stub
 		driver=new ChromeDriver();

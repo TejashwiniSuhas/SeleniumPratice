@@ -1,0 +1,18 @@
+<suite name="MyTestSuite">
+    <!--<test name="Register Tests" parallel="methods" thread-count="2">  runs all the methods in parallel-->
+    <test name="Register Tests">
+
+           <!--  <methods> runs only the method that is passed in include 
+             <exclude name="utilisedetails"/> 
+            </methods> -->
+            <groups>
+              <run>
+               <include name="Regression"/>
+               </run>>
+            </groups>
+           <classes>
+            <class name="simplemaven.mavenproject.Signuppage"/>
+            <class name="simplemaven.mavenproject.Register"/>
+        </classes>
+    </test>
+</suite>
