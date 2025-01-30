@@ -3,6 +3,7 @@ package simplemaven.mavenproject;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -47,18 +48,20 @@ public class Signuppage {
     	return ob;
      }
     
-//    @Test(groups = {"Regression"})
-//	public void setup() {
-//		driver=new ChromeDriver();
-//		driver.get(url);
-//		driver.manage().window().maximize();
-//		WebElement usernamedp=driver.findElement(By.xpath("//input[@id='user-name']"));
-//		usernamedp.sendKeys(user);
-//		WebElement passwordele=driver.findElement(By.xpath("//input[@id='password']"));
-//		passwordele.sendKeys(password);
-//		WebElement loginButton=driver.findElement(By.xpath("//input[@id=\"login-button\"]"));
-//		loginButton.click();
-//	}
+    @Test(groups = {"Regression"})
+	public void setup() {
+		driver=new ChromeDriver();
+		driver.get(url);
+		driver.manage().window().maximize();
+		WebElement usernamedp=driver.findElement(By.xpath("//input[@id='user-name']"));
+		JavascriptExecutor js= (JavascriptExecutor)driver;//js directly interact with dom (documnet object model)
+		js.executeScript("arguments[0].value='standard_user';", usernamedp);
+		//usernamedp.sendKeys(user);
+		WebElement passwordele=driver.findElement(By.xpath("//input[@id='password']"));
+		passwordele.sendKeys(password);
+		WebElement loginButton=driver.findElement(By.xpath("//input[@id=\"login-button\"]"));
+		loginButton.click();
+	}
 //    
 //    
 //    //@Test(dependsOnMethods = {"setup"})//creating dependency
