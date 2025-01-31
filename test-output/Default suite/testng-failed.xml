@@ -3,12 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="simplemaven.mavenproject.Signuppage">
+      <class name="Tests.Signuptest">
         <methods>
-          <include name="close"/>
-          <include name="testproductdetails"/>
+          <include name="signUpSetUp"/>
+          <include name="closeBrowser"/>
+          <include name="login"/>
         </methods>
-      </class> <!-- simplemaven.mavenproject.Signuppage -->
+      </class> <!-- Tests.Signuptest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

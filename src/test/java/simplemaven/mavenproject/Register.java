@@ -7,6 +7,7 @@ import java.util.Set;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -26,12 +27,15 @@ public class Register {
 		driver=new ChromeDriver();
 	       driver.get(url);
 	       driver.manage().window().maximize();
+	       driver.navigate().refresh();
+	       JavascriptExecutor js=(JavascriptExecutor)driver;
 	       WebElement newWindow=driver.findElement(By.xpath("//a[text()='Open Seperate Multiple Windows']"));
-	       newWindow.click();
+	       //newWindow.click();
+	       js.executeScript("arguments[0].click();", newWindow);
 	       String parent=driver.getWindowHandle();
 	       WebElement click=driver.findElement(By.xpath("//button[@onclick='multiwindow()']"));
 		   click.click();
-		   Set<String> hd=driver.getWindowHandles();
+		   Set<String> hd=driver.getWindowHandles();//it gives all the windows unique id along with parent also
 		   Iterator<String> ihd=hd.iterator();
 		   while(ihd.hasNext()) {
 			   String child=ihd.next();

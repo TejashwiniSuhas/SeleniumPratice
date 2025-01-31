@@ -1,6 +1,7 @@
 package simplemaven.mavenproject;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -24,8 +25,10 @@ public class Frames {
        WebElement heading=driver.findElement(By.xpath("(//div[@dir='auto'])[1]"));
        String head=heading.getText();
        System.out.println(head);
-       Actions ac=new Actions(driver);
-       ac.moveToElement(radioButton).perform();
+//       Actions ac=new Actions(driver);
+//       ac.moveToElement(radioButton).perform();
+       JavascriptExecutor js=(JavascriptExecutor)driver;
+       js.executeScript("arguments[0].scrollIntoView(true);", radioButton);
        System.out.println(radioButton.isDisplayed());
        System.out.println(radioButton.getText());
        
