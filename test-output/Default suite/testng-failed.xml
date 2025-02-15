@@ -5,9 +5,9 @@
     <classes>
       <class name="Tests.Signuptest">
         <methods>
-          <include name="signUpSetUp"/>
           <include name="closeBrowser"/>
           <include name="login"/>
+          <include name="preProcess"/>
         </methods>
       </class> <!-- Tests.Signuptest -->
     </classes>

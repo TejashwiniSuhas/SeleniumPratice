@@ -2,6 +2,7 @@ package Tests;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
@@ -11,20 +12,17 @@ import pages.Signuppage;
 import simplemaven.mavenproject.Baseclass;
 
 public class Signuptest extends Baseclass{
-	
-		WebDriver driver;
+
+//		WebDriver driver;
         Loginpage login;
-        Baseclass init;
 //        String url="https://www.browserstack.com/users/sign_in";
     
-        @BeforeSuite
-        public void signUpSetUp() {
+//        @BeforeSuite
+//        public void signUpSetUp() {
 //        	driver=new ChromeDriver();
 //        	driver.manage().window().maximize();
 //        	driver.get(url);
-        	init=new Baseclass();
-        	init.preProcess();
-        }  
+//        }  
         
         @Test(enabled=false)
         public void signUp() {
@@ -37,6 +35,11 @@ public class Signuptest extends Baseclass{
         	
         	login=new Loginpage(driver);
         	login.logIn("tejashwinikrishna08@gmail.com", "123456789");
+        	System.out.println(driver.getTitle());
+        	String actualTitle=driver.getTitle();
+        	String expectedTitle="BrowserStack Login | Sign Into The Best Mobile & Browser Testing Tool";
+        	Assert.assertEquals(actualTitle, expectedTitle);
+        	//Assert.assertTrue(false);
         }
         
         @AfterSuite
